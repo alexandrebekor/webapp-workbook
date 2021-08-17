@@ -151,3 +151,16 @@ function triplicar(num) {
 
 console.log(triplicar(10))
 ```
+
+## Arrow Function
+```js
+const multiplicar = (a, b) => {
+  return a * b
+}
+
+//ou
+const multiplicar = (a, b) => a * b
+
+//quando temos apenas um argumento, até os parenteses podem ser omitidos
+const triplicar = num => num * 3
+```
