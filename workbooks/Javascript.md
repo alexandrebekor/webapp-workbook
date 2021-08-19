@@ -204,3 +204,41 @@ vetor.map()
 
 vetor.reduce()
 ```
+
+# Módulos
+Conforme a aplicação cresce é possível distribuí-la em módulos.
+
+```js
+// math.js
+const somar = (a, b) => a + b
+const subtrair = (a, b) => a - b
+
+module.exports = {
+  somar,
+  subtrair
+}
+
+// index.js
+const { somar } = require('./math')
+const resultado = somar(3, 9)
+```
+
+Outra maneira de importação de módulos é utilizar a palavra-chave `import`:
+
+```js
+// math.js
+// para exportar individualmente
+export somar = (a, b) => a + b
+export subtrair = (a, b) => a - b
+
+// para exportar tudo
+export default
+
+// index.js
+// Os imports só podem ser declarados no início do documento
+import math from './math'
+
+// ou
+const { somar } = require('./math')
+const resultado = somar(3, 9)
+```
