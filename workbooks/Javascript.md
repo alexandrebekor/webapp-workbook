@@ -165,4 +165,42 @@ const multiplicar = (a, b) => a * b
 const triplicar = num => num * 3
 ```
 
-# Teste de Upload
+## High Order Function
+É uma função que recebe outra função como parâmetro ou que retorna uma função.
+
+```js
+// Recebe uma função como parâmetro
+const somar = {a, b} => a + b
+const multiplicar = {a, b} => a * b
+
+const calcular = {operacao, a, b} => operacao(a, b)
+
+const resultado = calcular(multiplicar, 3, 9)
+```
+
+```js
+// Retorna uma função como parâmetro
+const operacao = op => {
+  const ops = {
+    '+': somar,
+    '*': multiplicar
+  }
+
+  return ops[op]
+}
+
+const resultado = calcular(operacao('+'), 3, 9)
+// resultado = calcular(somar, 3, 9)
+```
+
+Existem algumas HOFs (High Order Functions) que podem ser aplicadas diretamente a vetores:
+
+```js
+const vetor = [1, 2, 3, 4, 5]
+
+vetor.forEach()
+
+vetor.map()
+
+vetor.reduce()
+```
