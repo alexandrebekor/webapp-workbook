@@ -263,6 +263,8 @@ npm install next react react-dom
 }
 ```
 
+Crie um diretório chamado `pages` para que o Next se encarregue de transformar cada arquivo dentro da pasta em uma rota.
+
 ```js
 // pages > Index.js
 import React from 'react'
@@ -274,6 +276,52 @@ const Index = () => {
 export default Index
 ```
 
+Para rodar o component levante o servidor:
+
 ```js
 npm run dev
+```
+
+## Link
+A navegação em meio as rotas pode ser otimizada utilizando um componente react:
+
+```js
+// pages > index.js
+import React from 'react'
+import Link from 'next/link'
+
+const Index = () => {
+  return (
+    <div>
+      <h1>Hello World</h1>
+      <div>
+        <Link href='/sobre'>
+          <a>Sobre</a>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+export default Index
+```
+
+```js
+import React from 'react'
+import Link from 'next/link'
+
+const Sobre = () => {
+  return (
+    <div>
+      <h1>Sobre</h1>
+      <div>
+        <Link href='/'>
+          <a>Voltar</a>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+export default Sobre
 ```
