@@ -242,3 +242,38 @@ import math from './math'
 const { somar } = require('./math')
 const resultado = somar(3, 9)
 ```
+
+# Next.js
+O Next permite a criação de aplicações inteiras, porém quando se trata de aplicações complexas com um grande número de atividades o interessante é desacoplar o backend do frontend.
+
+```js
+npm init - y
+npm install next react react-dom
+```
+
+É interessante também personalizar os `scripts` no arquivo `package.json`:
+```js
+"scripts": {
+  // Sobe um servidor
+  "dev": "next",
+  // Compila uma nova versão de produção
+  "build": "next build",
+  // Deve ser executado após o build, porque ele é responsável por iniciar a versão de produção
+  "start": "next start"
+}
+```
+
+```js
+// pages > Index.js
+import React from 'react'
+
+const Index = () => {
+  return <h1>Hello World</h1>
+}
+
+export default Index
+```
+
+```js
+npm run dev
+```
