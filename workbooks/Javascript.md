@@ -330,3 +330,9 @@ export default Sobre
 ```js
 npm install swr
 ```
+
+O Next.js permite a criação de API facilmente, basta criar uma pasta com o nome `api` dentro da pasta `pages`:
+
+```js
+// pages > api > get-text.js
+```
