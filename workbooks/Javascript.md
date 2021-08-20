@@ -325,3 +325,8 @@ const Sobre = () => {
 
 export default Sobre
 ```
+
+## SWR
+```js
+npm install swr
+```
