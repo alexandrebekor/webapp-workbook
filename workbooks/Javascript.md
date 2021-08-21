@@ -1,5 +1,9 @@
-# Javascript
-O Javascript é um linguagem de script, ou seja, ela é executada assim que chamada, diferente de uma linguagem compilada, que precisa ser convertida em um pacote binário para ser executada.
+# O que é Javascript?
+O Javascript é um linguagem de script baseada no padrão de implementação ECMAScrit e cada motor de javascript é responsável por implementar essas regras descritas no ECMA.
+
+O Javascript é assíncrono e mono-thread, ou seja, ele possui apenas uma única linha de execução o que poderia ser uma desvantagem se utizarmos tarefas de io ou operações muito custosas, se não fosse pela capacidade do Javascript em "agendar essas tarefas" (event loop) fora da pilha de execução.
+
+Por ser uma linguagem de script ela é executada assim que chamada, diferente de uma linguagem compilada, que precisa ser convertida em um pacote binário para ser executada.
 
 ## Linguagem Compilada
 Código Fonte -> Binário -> Executado
@@ -242,6 +246,11 @@ import math from './math'
 const { somar } = require('./math')
 const resultado = somar(3, 9)
 ```
+
+# Assincronismo
+O assincronismo é quando desvinculamos as operações da thread principal, normalmente utilizado para atividades mais pesadas como o carregamento de documentos.
+
+> Nunca utilize uma atividade síncrona na thread principal, é uma questão de performance
 
 # Next.js
 O Next permite a criação de aplicações inteiras, porém quando se trata de aplicações complexas com um grande número de atividades o interessante é desacoplar o backend do frontend.
