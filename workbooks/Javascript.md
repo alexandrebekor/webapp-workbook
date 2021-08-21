@@ -344,4 +344,35 @@ O Next.js permite a criação de API facilmente, basta criar uma pasta com o nom
 
 ```js
 // pages > api > get-text.js
+export default async(req, res) => {
+    res.end(JSON.stringify({
+        showMessage: true,
+        message: "Essa é a mensagem"
+    }))
+}
+```
+
+O SWR permite realizar requisições ao servidor toda a vez em que o usuário ativa a tela, ou seja, se a variável `showMessage` for passada para `false` e o site estiver aberto em um cliente que minimizou a tela, assim que ele reabrir a tela uma requisição será disparada para o servidor para atualizar os dados dependentes do `useSWR`.
+
+```js
+// index.js
+import React from 'react'
+import useSWR from 'swr'
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+
+const Index = () => {
+    const {data, error } = useSWR('/api/get-message', fetcher)
+    return (
+        <div>
+            <h1>Início</h1>
+            {!data && <p>Carregando...</p>}
+            {!error && data && data.showMessage &&
+                <p>{ data.message }</p>
+            }
+        </div>
+    )
+}
+
+export default Index
 ```
