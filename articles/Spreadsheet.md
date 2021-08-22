@@ -32,7 +32,7 @@ const run = async () => {
         // console.log(doc.title)
 
         const sheet = doc.sheetsByIndex[2]
-        await sheet.loadCells('A3:C3')
+        await sheet.loadCells('A2:B2')
         // console.log(sheet.title)
         const valueCell = sheet.getCell(1, 0)
         // console.log(valueCell.value)
@@ -68,7 +68,7 @@ const run = async () => {
 > O valor da `key` do objeto deve ser exatamente igual ao escrito no cabeçalho, é possível declarar a key entre aspas caso a descrição seja composta por mais de uma palavra:
 
 ```js
-await sheet.addTow({
+await sheet.addRow({
     "Nome Completo:": "Alexandre Bekor"
 })
 ```
