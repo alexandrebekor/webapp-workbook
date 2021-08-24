@@ -379,3 +379,7 @@ export default Index
 
 ## Moment.JS
 Biblioteca utilizada para formatação de datas.
+
+# Closure
+
+# Arrow Functions
