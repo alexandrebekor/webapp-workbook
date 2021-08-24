@@ -383,3 +383,101 @@ Biblioteca utilizada para formatação de datas.
 # Closure
 
 # Arrow Functions
+
+# Pure functions
+São funções que dependem única e exclusivamente das entradas, ou seja, não dependem de contexto externo.
+
+# Express
+O Express é um servidor javascript minimalista e completo.
+
+```js
+yarn add express ejs
+```
+
+Configurar o servidor:
+
+```js
+const express = require('express')
+const app = express()
+
+app.listen(3000, err => {
+    if(err) {
+        console.log(err)
+    } else {
+        console.log('Project Online')
+    }
+})
+```
+
+Configurar as visualizações com o `EJS`:
+
+```js
+const express = require('express')
+const app = express()
+const path = require('path')
+
+// Configura o ejs como motor das views
+app.set('view engine', 'ejs')
+
+// Define a pasta raiz das views
+app.set('views', path.join(__dirname, 'views'))
+
+// Define a pasta de arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')))
+
+// Endpoint para a página home
+app.get('/', (req, res) => {
+    res.render('home')
+})
+
+app.listen(3000, err => {
+    if(err) {
+        console.log(err)
+    } else {
+        console.log('Project Online')
+    }
+})
+```
+
+Dentro do Projeto é possível criar uma biblioteca própria para uso na aplicação:
+
+```js
+// lib > convert.js
+const convert = (quotation, amount) => quotation * amount
+const toMoney = value => value.toFixed(2)
+
+module.exports = {
+    convert,
+    toMoney
+}
+```
+
+```js
+// ./index.js
+const express = require('express')
+const app = express()
+const path = require('path')
+
+// Require Lib
+const convert = require('./lib/convert')
+
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/', (req, res) => {
+    res.render('home')
+})
+
+app.get('/quotation', (req, res) => {
+    res.render('quotation')
+})
+
+app.listen(3000, err => {
+    if(err) {
+        console.log(err)
+    } else {
+        console.log('Project Online')
+    }
+})
+```
