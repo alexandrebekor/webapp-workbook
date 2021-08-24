@@ -51,6 +51,26 @@ De modo geral o ECMAScript define que existem 9 tipos de dados distribuídos em 
 No caso de uso das `crases` temos a chama `template strings`, que é quando conseguimos utilizar variáveis dentro da declaração da string:
 
 ```js
+const name = 'Alexandre Bekor'
+console.log(name.split(' '))
+// ['Alexandre', 'Bekor']
+
+console.log(name.split(' ').join(' - '))
+// 'Alexandre - Bekor'
+```
+
+### Interpolação de Strings
+
+```js
+const var = `
+  isso é
+  uma string
+  multilinha
+  Nome: ${name}
+`
+```
+
+```js
 const template = `Isso é um template com uma ${variavel}`
 ```
 
@@ -479,5 +499,50 @@ app.listen(3000, err => {
     } else {
         console.log('Project Online')
     }
+})
+```
+
+# Testes Unitários
+
+```js
+npm install --save-dev jest
+```
+
+Altere o `package.json`;
+
+```js
+{
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  //...
+}
+```
+
+Um dos modelos para criar testes é adicionar o arquivo de teste no mesmo diretório do arquivo que será testado.
+
+```js
+- money.js
+- money.test.js
+
+// money.test.js
+
+// Importar o arquivo que será testado
+const money = require('./money')
+
+// Criar o teste primeiro com uma descrição
+test('CONVERT', () => {
+    // expect() = o que se espera testar
+    // .toBe() = o que se espera ter como resultado
+    expect(money.convert(5,2)).toBe(10)
+})
+
+test('TOMONEY', () => {
+    expect(money.toMoney(5)).toBe('5.00')
+})
+
+test('TOMONEY STRING', () => {
+    expect(money.toMoney('5')).toBe('5.00')
 })
 ```
