@@ -60,6 +60,7 @@ console.log(name.split(' ').join(' - '))
 ```
 
 ### Interpolação de Strings
+A interpolação é uma expressão que é calculada em tempo de execução, ou seja, podemos declarar até mesmo um cálculo matemático além do uso clássico das variáveis.
 
 ```js
 const var = `
@@ -271,6 +272,15 @@ const resultado = somar(3, 9)
 O assincronismo é quando desvinculamos as operações da thread principal, normalmente utilizado para atividades mais pesadas como o carregamento de documentos.
 
 > Nunca utilize uma atividade síncrona na thread principal, é uma questão de performance
+
+```js
+// módulo nativo que permite interação com o disco
+const fs = require('fs')
+
+fs.readdir('./', function(err, data) {
+  console.log(data)
+})
+```
 
 # Next.js
 O Next permite a criação de aplicações inteiras, porém quando se trata de aplicações complexas com um grande número de atividades o interessante é desacoplar o backend do frontend.
