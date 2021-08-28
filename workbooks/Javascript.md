@@ -282,6 +282,19 @@ fs.readdir('./', function(err, data) {
 })
 ```
 
+# Promises
+Promisse também é outra forma de trabalhar com assincronismo, a diferença que ele tem em relação ao `callback` é que no momento em que ele é executado ele devolve uma promessa de que devolverá o resultado assim que a tarefa for concluida.
+
+```js
+function time(ms) {
+  return new Promisse((resolve, reject) => {
+    setTimeout(resolve, ms)
+  })
+}
+
+time(5000).then(() => console.log('Bekor'))
+```
+
 # Next.js
 O Next permite a criação de aplicações inteiras, porém quando se trata de aplicações complexas com um grande número de atividades o interessante é desacoplar o backend do frontend.
 
